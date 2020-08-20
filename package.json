@@ -1,0 +1,34 @@
+{
+  "name": "mycv",
+  "version": "1.0.0",
+  "description": "CV online website",
+  "main": "main.js",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "mongoose": "^5.10.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "start": "nodemon --inspect main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dttinh18it3/MyCV.git"
+  },
+  "keywords": [
+    "mycv"
+  ],
+  "author": "HelloWorldTeam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dttinh18it3/MyCV/issues"
+  },
+  "homepage": "https://github.com/dttinh18it3/MyCV#readme"
+}
