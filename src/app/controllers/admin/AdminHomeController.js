@@ -1,11 +1,11 @@
 
 const path = require('path');
-class HomeController{
+class AdminHomeController{
     
     GetHome(request, response) {
-        response.render('admin_home');
+        response.render('adminHome');
         console.log("PATH admin"+ path.join(__dirname));
     }
 }
 
-module.exports = new HomeController;
+module.exports = new AdminHomeController;

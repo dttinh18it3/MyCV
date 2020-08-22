@@ -3,12 +3,16 @@ const morgan = require('morgan');
 const path = require('path');
 const handlebars  = require('express-handlebars');
 
-const port = 3000;
+const port = 4000;
 // Khai bao controller
 const app = express();
 
 // Khai bao route
-const route = require('./routes/index_router')
+const route = require('./routes/indexRouter');
+//Khai bao ket noi database
+const database = require('./config/database/connectdb');
+// Ket noi database
+database.connectdb();
 
 //Khai bao thu muc public
 app.use(express.static(path.join(__dirname, 'public')));
