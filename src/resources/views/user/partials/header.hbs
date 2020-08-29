@@ -1,28 +1,96 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">MyCV</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+<nav>
+    <div class="logo">
+        <a href="/">
+            <ul>
+                <li><img src="/images/mycvlogo.png" alt="MyCV_logo"></li>
+                <li><span>MyCV</span></li>
+            </ul>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Notification</a></li>
+        <li><button class="btnLogin" id="btnLogin">Login</button></li>
     </ul>
-  </div>
+    <div class="toggleButton" id="toggleButton">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
 </nav>
+
+<div class="loginFormPopup">
+    <div class="btnClose">
+        <span id="btnClose"><i class="fas fa-times"></i></span>
+    </div>
+    <div class="containerForm">
+        <div class="imageBox">
+            <img src="/images/login_image.png" alt="">
+        </div>
+        <form class="loginInfomationBox" method="POST" action="">
+            <div class="infomation">
+                <input type="text" name="email" id="email" placeholder="email"><br>
+                <input type="password" name="password" id="password" placeholder="password"><br>        
+            </div>
+
+            <div class="rememberPassword">
+                <input type="checkbox" name="rememberPassword" id="rememberPassword">
+                <label for="rememberPassword">remember password?</label>
+            </div>
+
+            <div class="btnLoginValidatte">
+                <input type="submit" name="btnLoginValidate" id="btnLoginValidate" value="Login">
+            </div>
+
+            <div class="supportLogin">
+                <span>Forget password?</span><br>
+                <span id="createAccount">Create account!</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="registrationFormPopup">
+    <div class="btnCloseRegistration">
+        <span id="btnCloseRegistration"><i class="fas fa-times"></i></span>
+    </div>
+    <div class="titleBox">
+        <span>Registration</span>
+    </div>
+    <div class="containerForm">
+        <form class="registrationInfomationBox" method="POST" action="">
+            <div class="colunm1">
+                <label for="username">Fullname</label>
+                <input type="text" name="username" id="username" placeholder="">
+
+                <label for="gender">Gender</label><br>
+                <input type="radio" name="gender" id="male" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="Female">
+                <label for="female">Female</label><br>
+                
+                <label for="DoB">Date of birth</label>
+                <input type="date" name="DoB" id="DoB" placeholder="">
+
+                <label for="cellphone">Cellphone</label>
+                <input type="text" name="cellphone" id="cellphone" placeholder="">
+
+            </div>
+            <div class="colunm2">
+                <label for="userEmail">Email</label>
+                <input type="text" name="userEmail" id="userEmail" placeholder="">
+                <label for="userEmail">Email</label>
+                <input type="text" name="userEmail" id="userEmail" placeholder="">
+                <label for="userEmail">Email</label>
+                <input type="text" name="userEmail" id="userEmail" placeholder="">
+                <label for="userEmail">Email</label>
+                <input type="text" name="userEmail" id="userEmail" placeholder="">
+                
+            </div>
+            <div class="buttonBox">
+                <input type="submit" id="btnRegistration" value="Registration">
+            </div>
+        </form>
+    </div>
+</div>

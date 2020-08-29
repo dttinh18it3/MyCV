@@ -1,2 +1,312 @@
-h1 {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; }
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  min-height: 8vh; }
+
+.logo a {
+  text-decoration: none; }
+
+.logo li {
+  list-style: none;
+  float: left; }
+
+.logo img {
+  vertical-align: middle;
+  width: 70px; }
+
+.logo span {
+  vertical-align: middle;
+  color: #f48f3f;
+  align-items: center;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: 0;
+  font-size: 30px; }
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+  margin: 0;
+  list-style: none; }
+
+.nav-links button {
+  cursor: pointer;
+  outline: none;
+  background-color: black;
+  border: solid 2px #f48f3f;
+  color: #f48f3f;
+  padding: 8px 16px;
+  font-weight: bold; }
+
+.nav-links button:hover {
+  background-image: linear-gradient(#ee613c, #fecc10);
+  color: white;
+  padding: 10px 18px;
+  border: none; }
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; }
+
+.toggleButton div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.5s ease; }
+
+.toggleButton {
+  display: none;
+  cursor: pointer; }
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden; }
+  .nav-links {
+    position: absolute;
+    right: 0;
+    height: 92vh;
+    top: 8vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in; }
+  .toggleButton {
+    display: block; }
+  .nav-links li {
+    opacity: 0; }
+  .containerForm {
+    flex-direction: column;
+    float: bot; }
+  .loginInfomationBox,
+  .imageBox {
+    width: 100%; } }
+
+@media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 60%; } }
+
+.nav-active {
+  transform: translateX(0%);
+  width: 60%; }
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px); }
+  to {
+    opacity: 1;
+    transform: translateX(0px); } }
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px); }
+
+.toggle .line2 {
+  opacity: 0; }
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px); }
+
+.container-active {
+  filter: blur(1px);
+  pointer-events: none;
+  user-select: none; }
+
+.loginFormPopup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  padding: 10px 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s; }
+
+.registrationFormPopup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: 10px 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s; }
+
+.loginFormPopup-active,
+.registrationFormPopup-active {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+  z-index: -1; }
+
+.btnClose span {
+  float: right;
+  cursor: pointer; }
+
+.btnClose span:hover {
   color: red; }
+
+.titleBox span {
+  color: #f48f3f; }
+
+.btnCloseRegistration {
+  width: 100%; }
+
+.btnCloseRegistration span {
+  float: right;
+  cursor: pointer; }
+
+.btnCloseRegistration span:hover {
+  color: red; }
+
+.imageBox,
+.loginInfomationBox,
+.colunm1,
+.colunm2 {
+  float: left;
+  padding: 20px;
+  width: 50%; }
+
+.imageBox img {
+  width: 100%; }
+
+.infomation input {
+  margin-top: 10px;
+  width: 80%;
+  padding: 5px 10px;
+  outline: none;
+  font-size: 15px;
+  border: none;
+  border-bottom: solid 2px #f48f3f; }
+
+.rememberPassword {
+  position: relative;
+  margin-top: 10px; }
+
+.rememberPassword input {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  bottom: 0;
+  appearance: none;
+  background-color: white;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); }
+
+.rememberPassword label {
+  font-size: 15px;
+  color: grey;
+  cursor: pointer; }
+
+.rememberPassword input:checked {
+  width: 12px;
+  height: 12px;
+  background-color: #f48f3f;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); }
+
+.btnLoginValidatte {
+  width: 100%;
+  margin: 15px 0px; }
+
+#btnLoginValidate {
+  position: relative;
+  padding: 10px 30px;
+  background-color: #f48f3f;
+  border: none;
+  color: white;
+  font-weight: bold; }
+
+#btnLoginValidate:hover {
+  cursor: pointer;
+  background-color: black; }
+
+.supportLogin span {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  margin-top: 15px; }
+
+.supportLogin span:hover {
+  color: #f48f3f; }
+
+.registrationInfomationBox input[type='text'],
+.registrationInfomationBox input[type='date'] {
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  outline-color: #f48f3f;
+  border: solid 1px black;
+  border-radius: 3px; }
+
+.registrationInfomationBox input[type='radio'] {
+  margin-bottom: 10px;
+  padding: 10px 20px; }
+
+.colunm1 span {
+  color: #f48f3f; }
+
+.buttonBox {
+  width: 100%;
+  padding: 20px; }
+
+.registrationInfomationBox input[type='submit'] {
+  padding: 8px 10px;
+  border-radius: 3px;
+  background-color: white;
+  border: solid 2px #f48f3f;
+  color: #f48f3f;
+  font-weight: bold;
+  float: right; }
+
+.registrationInfomationBox input[type='submit']:hover {
+  cursor: pointer;
+  background-color: #f48f3f;
+  color: white; }
+
+@media screen and (max-width: 768px) {
+  .containerForm,
+  .registrationInfomationBox {
+    flex-direction: column; }
+  .colunm1,
+  .colunm2,
+  .buttonBox {
+    width: 100%;
+    padding: 0px;
+    margin: 0px; }
+  .buttonBox span,
+  .buttonBox input {
+    margin-top: 20px; }
+  .loginInfomationBox,
+  .imageBox {
+    width: 100%; }
+  .imageBox img {
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .loginInfomationBox input[type='text'],
+  .loginInfomationBox input[type='password'],
+  .loginInfomationBox input[type='submit'] {
+    width: 100%; } }
