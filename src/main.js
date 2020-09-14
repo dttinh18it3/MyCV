@@ -13,7 +13,11 @@ const route = require('./routes/indexRouter');
 const database = require('./config/database/connectdb');
 // Ket noi database
 database.connectdb();
-
+// Khai bao body -- middleware xử lý dữ liệu form
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(express.json());
 //Khai bao thu muc public
 app.use(express.static(path.join(__dirname, 'public')));
 

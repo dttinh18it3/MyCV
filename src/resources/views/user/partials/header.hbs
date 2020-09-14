@@ -1,4 +1,4 @@
-<nav>
+<nav class="navbar smart-scroll">
     <div class="logo">
         <a href="/">
             <ul>
@@ -7,12 +7,22 @@
             </ul>
         </a>
     </div>
+
     <ul class="nav-links" id="nav-links">
+        <li><a href="#">Tuyển dụng</a></li>
+        <li><a href="#">Tìm việc</a></li>
+        <li><a href="#">Tạo hồ sơ</a></li>
+        <li><a href="#">Liên hệ</a></li>
+        <li><button class="btnLogin" id="btnLogin">Đăng nhập</button></li>
+        <li><button class="btnRegister" id="btnRegister">Đăng kí</button></li>
+    </ul>
+    {{!-- <ul class="nav__mobile-links" id="nav__mobile-links">
         <li><a href="#">Profile</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Notification</a></li>
         <li><button class="btnLogin" id="btnLogin">Login</button></li>
-    </ul>
+    </ul> --}}
+
     <div class="toggleButton" id="toggleButton">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -20,77 +30,125 @@
     </div>
 </nav>
 
-<div class="loginFormPopup">
-    <div class="btnClose">
-        <span id="btnClose"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="containerForm">
-        <div class="imageBox">
-            <img src="/images/login_image.png" alt="">
+{{!-- modal layout --}}
+<div class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <div class="modal__inner">
+            <div class="loginFormPopup">
+                <div class="btnClose">
+                    <span id="btnClose"><i class="fas fa-times"></i></span>
+                </div>
+                <div class="containerForm">
+                    <div class="imageBox">
+                        <img src="/images/login_image.png" alt="">
+                    </div>
+                    <form class="loginInfomationBox" method="POST" action="">
+                        <div class="infomation">
+                            <input type="text" name="email" id="email" placeholder="Email" required><br>
+                            <input type="password" name="password" id="password" placeholder="Mật khẩu" required><br>
+                        </div>
+
+                        <div class="rememberPassword">
+                            <input type="checkbox" name="rememberPassword" id="rememberPassword">
+                            <label for="rememberPassword">Nhớ thông tin tài khoản?</label>
+                        </div>
+
+                        <div class="btnLoginValidatte">
+                            <input type="submit" name="btnLoginValidate" id="btnLoginValidate" value="Đăng nhập">
+                        </div>
+
+                        <div class="supportLogin">
+                            <span>Quên mật khẩu?</span><br>
+                            <span id="createAccount">Tạo tài khoản!</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <form class="loginInfomationBox" method="POST" action="">
-            <div class="infomation">
-                <input type="text" name="email" id="email" placeholder="email"><br>
-                <input type="password" name="password" id="password" placeholder="password"><br>        
-            </div>
-
-            <div class="rememberPassword">
-                <input type="checkbox" name="rememberPassword" id="rememberPassword">
-                <label for="rememberPassword">remember password?</label>
-            </div>
-
-            <div class="btnLoginValidatte">
-                <input type="submit" name="btnLoginValidate" id="btnLoginValidate" value="Login">
-            </div>
-
-            <div class="supportLogin">
-                <span>Forget password?</span><br>
-                <span id="createAccount">Create account!</span>
-            </div>
-        </form>
     </div>
 </div>
+<div class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <div class="modal__inner">
+            <div class="registrationFormPopup">
+                <div class="btnCloseRegistration">
+                    <span id="btnCloseRegistration"><i class="fas fa-times"></i></span>
+                </div>
+                <div class="titleBox">
+                    <span>Đăng kí</span>
+                </div>
+                <div class="containerForm">
+                    <form class="registrationInfomationBox" method="POST" action="/create-account" autocomplete="off">
+                        <div class="containerForm-inputBox">
+                            <div class="colunm1">
+                                <div class="form-control">
+                                    <label for="user_Name">Họ và tên</label>
+                                    <input type="text" name="user_Name" id="user_Name" required>
+                                    <small></small>
+                                </div>
+                                <div class="form-control">
+                                    <label for="gender">Giới tính</label><br>
+                                    <input type="radio" name="gender" id="male" value="1" required>
+                                    <label for="male">Nam</label>
+                                    <input type="radio" name="gender" id="female" value="0" required>
+                                    <label for="female">Nữ</label><br>
+                                    <small></small>
+                                </div>
 
-<div class="registrationFormPopup">
-    <div class="btnCloseRegistration">
-        <span id="btnCloseRegistration"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="titleBox">
-        <span>Registration</span>
-    </div>
-    <div class="containerForm">
-        <form class="registrationInfomationBox" method="POST" action="">
-            <div class="colunm1">
-                <label for="username">Fullname</label>
-                <input type="text" name="username" id="username" placeholder="">
+                                <div class="form-control">
+                                    <label for="dateOfBirth">Ngày sinh</label>
+                                    <input type="date" name="dateOfBirth" id="dateOfBirth" required>
+                                    <small></small>
+                                </div>
 
-                <label for="gender">Gender</label><br>
-                <input type="radio" name="gender" id="male" value="Male">
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="female" value="Female">
-                <label for="female">Female</label><br>
-                
-                <label for="DoB">Date of birth</label>
-                <input type="date" name="DoB" id="DoB" placeholder="">
+                                <div class="form-control">
+                                    <label for="cellphone">Số điện thoại</label>
+                                    <input type="text" name="cellphone" id="cellphone" required>
+                                    <small></small>
+                                </div>
+                            </div>
+                            <div class="colunm2">
+                                <div class="form-control">
+                                    <label for="specialization">Chuyên ngành</label>
+                                    <select name="specialization" id="specialization" required>
+                                        <option value="0">-- Select one --</option>
+                                        <option value="1">Computer Science</option>
+                                        <option value="2">Economics and industry</option>
+                                        <option value="3">Linguistics</option>
+                                        <option value="4">Organizations</option>
+                                    </select>
+                                    <small></small>
+                                </div>
 
-                <label for="cellphone">Cellphone</label>
-                <input type="text" name="cellphone" id="cellphone" placeholder="">
+                                <div class="form-control">
+                                    <label for="register__email">Email</label>
+                                    <input type="text" name="register__email" id="register__email" required>
+                                    <small></small>
+                                </div>
 
+                                <div class="form-control">
+                                    <label for="pass">Mật khẩu</label>
+                                    <input type="password" name="pass" id="pass" required>
+                                    <small></small>
+                                </div>
+
+                                <div class="form-control">
+                                    <label for="confirm_password">Xác nhận mật khẩu</label>
+                                    <input type="password" name="confirm_password" id="confirm_password" required>
+                                    <small></small>
+                                </div>
+                                {{!-- <span id='message'></span> --}}
+                            </div>
+                        </div>
+                        <div class="buttonBox">
+                            <span id="backToLogin">Trở lại đăng nhập</span>
+                            <input type="submit" id="btnRegistration" value="Đăng kí">
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="colunm2">
-                <label for="userEmail">Email</label>
-                <input type="text" name="userEmail" id="userEmail" placeholder="">
-                <label for="userEmail">Email</label>
-                <input type="text" name="userEmail" id="userEmail" placeholder="">
-                <label for="userEmail">Email</label>
-                <input type="text" name="userEmail" id="userEmail" placeholder="">
-                <label for="userEmail">Email</label>
-                <input type="text" name="userEmail" id="userEmail" placeholder="">
-                
-            </div>
-            <div class="buttonBox">
-                <input type="submit" id="btnRegistration" value="Registration">
-            </div>
-        </form>
+        </div>
     </div>
 </div>
