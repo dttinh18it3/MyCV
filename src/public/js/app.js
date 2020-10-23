@@ -1,3 +1,5 @@
+
+
 const navSlide = () => {
     const toggleButton = document.querySelector('.toggleButton');
     const nav_links = document.querySelector('.nav-links');
@@ -28,29 +30,27 @@ const navSlide = () => {
         registrationFormPopup.classList.remove('registrationFormPopup-active');
         nav_links.classList.remove('nav-active');
         toggleButton.classList.remove('toggle');
-        $('body').css('overflow', 'hidden');
     })
 
     const btnCloseLoginForm = document.getElementById('btnClose');
     btnCloseLoginForm.addEventListener('click', () => {
         formLoginPopup.classList.remove('loginFormPopup-active');
         modal.classList.remove('modal-active');
-        $('body').css('overflow', '');
     });
 
     const btnRegister = document.querySelector('.btnRegister');
     const registrationFormPopup = document.querySelector('.registrationFormPopup');
     btnRegister.addEventListener('click', () => {
         modal.classList.toggle('modal-active');
-        $('body').css('overflow', 'hidden');
         registrationFormPopup.classList.toggle('registrationFormPopup-active');
     });
+    
     const createAccount = document.getElementById('createAccount');
-    // const registrationFormPopup = document.querySelector('.registrationFormPopup');
     createAccount.addEventListener('click', () => {
         registrationFormPopup.classList.toggle('registrationFormPopup-active');
         formLoginPopup.classList.remove('loginFormPopup-active');
     });
+
     const backToLogin = document.getElementById('backToLogin');
     backToLogin.addEventListener('click', () => {
         registrationFormPopup.classList.remove('registrationFormPopup-active');
@@ -61,18 +61,17 @@ const navSlide = () => {
     btnCloseRegistrationForm.addEventListener('click', () => {
         registrationFormPopup.classList.remove('registrationFormPopup-active');
         modal.classList.remove('modal-active');
-        $('body').css('overflow', '');
     });
 
 
-    $('body').css('padding-top', $('.navbar').outerHeight() + 'px')
-
 
     ScrollNavigation();
+    LoginCheckInput();
     CheckInputEmpty();
 }
 
 function ScrollNavigation() {
+    $('body').css('padding-top', $('.navbar').outerHeight() + 'px')
     // detect scroll top or down
     if ($('.smart-scroll').length > 0) { // check if element exists
         var last_scroll_top = 0;
@@ -86,6 +85,20 @@ function ScrollNavigation() {
             }
             last_scroll_top = scroll_top;
         });
+    }
+}
+
+function TogglePassword(input) {
+    const form_control = input.parentElement;
+    const toggle_password = form_control.querySelector('i');
+    if(input.type === 'password') {
+        input.setAttribute('type', 'text');
+        toggle_password.classList.remove('fa-eye-slash');
+        toggle_password.classList.add('fa-eye');
+    } else {
+        input.setAttribute('type', 'password');
+        toggle_password.classList.remove('fa-eye');
+        toggle_password.classList.add('fa-eye-slash');
     }
 }
 
@@ -120,7 +133,6 @@ function CheckPassword(password) {
 
 function setErrorInput(input, message) {
     const form_control = input.parentElement;
-    console.log(form_control);
     const small = form_control.querySelector('small');
     form_control.classList.add('invalid');
     input.style.border = "solid 1px red";
@@ -128,12 +140,43 @@ function setErrorInput(input, message) {
 }
 function setSuccessInput(input, message) {
     const form_control = input.parentElement;
-    console.log(form_control);
     const small = form_control.querySelector('small');
     form_control.classList.remove('invalid');
     input.style.border = "solid 1px green";
     small.innerText = message;
 }
+
+function LoginCheckInput(){
+    const loginForm = document.getElementById("loginInfomationBox");
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+    });
+    const login_email = document.getElementById("login_email");
+    const login_password = document.getElementById("login_password");
+    login_email.onblur = function() {
+        var login_email_value = $("#login_email").val().trim();
+        if(login_email_value.length == 0) {
+            setErrorInput(login_email, "Vui lòng nhập email!");
+        } else if(!CheckEmail(login_email_value)) {
+            setErrorInput(login_email, "Vui lòng nhập đúng email!");
+        } else {
+            setSuccessInput(login_email, "");
+        }
+       
+    }
+    login_password.onblur = function() {
+        var login_password_value = $("#login_password").val().trim();
+        if(login_password_value.length == 0) {
+            setErrorInput(login_password, "Vui lòng nhập mật khẩu!");
+        } else if(!CheckPassword(login_password_value)) {
+            setErrorInput(login_password, "Mật khẩu không chính xác!");
+        } else {
+            setSuccessInput(login_password, "");
+        }
+       
+    }
+}
+
 
 function CheckInputEmpty() {
     const user_Name = document.getElementById("user_Name");
@@ -144,6 +187,9 @@ function CheckInputEmpty() {
     const register__email = document.getElementById("register__email");
     const pass = document.getElementById("pass");
     const confirm_password = document.getElementById("confirm_password");
+
+    
+    
 
     user_Name.onblur = function() {
         var user_Name_value = $("#user_Name").val().trim();
@@ -175,7 +221,6 @@ function CheckInputEmpty() {
     }
     specialization.onblur = function() {
         var specialization_value = $("#specialization").val().trim();
-        console.log(specialization_value);
         if(!CheckSpecialization(specialization_value)) {
             setErrorInput(specialization, "Vui lòng chọn chuyên ngành!");
         } else {
@@ -207,7 +252,7 @@ function CheckInputEmpty() {
     //     var gender_value = $("input[name=gender]:checked").val();
 
     confirm_password.onkeyup = function() {
-        var pass_value = $("#pass").val();
+        var pass_value = $("#pass").val().trim();
         var confirm_password_value = $("#confirm_password").val();
         if(!CheckPassword(pass_value)) {
             setErrorInput(confirm_password, "Vui lòng tạo chính xác mật khẩu trước!");
@@ -219,6 +264,43 @@ function CheckInputEmpty() {
                     setErrorInput(confirm_password, "Không trùng khớp!");
                     confirm_password.style.border = "solid 1px red";
                 }
+    }
+    
+    const btnRegistration = document.getElementById("btnRegistration");
+    btnRegistration.onclick = function() {
+        const registrationInfomationBox = document.getElementById("registrationInfomationBox");
+        var user_Name_value = $("#user_Name").val().trim();
+        var dateOfBirth_value = $("#dateOfBirth").val().trim();
+        var cellphone_value = $("#cellphone").val().trim();
+        var specialization_value = $("#specialization").val().trim();
+        var register__email_value = $("#register__email").val().trim();
+        var pass_value = $("#pass").val().trim();
+        var confirm_password_value = $("#confirm_password").val();
+
+        console.log(" 1 " + CheckUserName(user_Name_value))
+        console.log(" 2 " + CheckDoB(dateOfBirth_value))
+        console.log(" 3 " + CheckCellphone(cellphone_value))
+        console.log(" 4 " + CheckSpecialization(specialization_value))
+        console.log(" 5 " + CheckEmail(register__email_value))
+        console.log(" 6 " + CheckPassword(pass_value))
+
+        if(CheckUserName(user_Name_value) == false || CheckDoB(dateOfBirth_value) == false || CheckCellphone(cellphone_value) == false
+            || CheckSpecialization(specialization_value) == false || CheckEmail(register__email_value) == false
+            || CheckPassword(pass_value) == false || !(confirm_password_value == pass_value)) {
+                    registrationInfomationBox.onsubmit = function(event) {
+                        event.preventDefault();
+                    }
+            } else {
+                document.getElementById("registrationInfomationBox").submit();
+                // $.ajax({
+                //     url : "/create-account",
+                //     type : "POST",
+                //     data : "abc",
+                //     success : function(result) {
+                //         console.log(result);
+                //     }
+                // });
+            }
     }
 }
 navSlide();

@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const handlebars  = require('express-handlebars');
 
-const port = 4000;
+const port = 3000;
 // Khai bao controller
 const app = express();
 

@@ -13,8 +13,12 @@
         <li><a href="#">Tìm việc</a></li>
         <li><a href="#">Tạo hồ sơ</a></li>
         <li><a href="#">Liên hệ</a></li>
-        <li><button class="btnLogin" id="btnLogin">Đăng nhập</button></li>
-        <li><button class="btnRegister" id="btnRegister">Đăng kí</button></li>
+        <div class="nav-links__buttonBox">
+            
+                <button class="btnLogin" id="btnLogin">Đăng nhập</button>
+                <button class="btnRegister" id="btnRegister">Đăng kí</button>
+            
+        </div>
     </ul>
     {{!-- <ul class="nav__mobile-links" id="nav__mobile-links">
         <li><a href="#">Profile</a></li>
@@ -43,24 +47,33 @@
                     <div class="imageBox">
                         <img src="/images/login_image.png" alt="">
                     </div>
-                    <form class="loginInfomationBox" method="POST" action="">
+                    <form class="loginInfomationBox" id="loginInfomationBox" method="POST" action="">
                         <div class="infomation">
-                            <input type="text" name="email" id="email" placeholder="Email" required><br>
-                            <input type="password" name="password" id="password" placeholder="Mật khẩu" required><br>
-                        </div>
-
-                        <div class="rememberPassword">
-                            <input type="checkbox" name="rememberPassword" id="rememberPassword">
-                            <label for="rememberPassword">Nhớ thông tin tài khoản?</label>
+                            <div class="login__form-control">
+                                <span class="input_icon fas fa-user"></span>
+                                <input type="text" name="login_email" id="login_email" placeholder="Email" required><br>
+                                <small></small>
+                            </div>
+                            <div class="login__form-control">
+                                <span class="input_icon fas fa-lock"></span>
+                                <input type="password" name="login_password" id="login_password" placeholder="Mật khẩu" required>
+                                <i class="fas fa-eye-slash toggle_password" id="toggle_password" onclick="TogglePassword(login_password)"></i><br>
+                                <small></small>
+                            </div>
                         </div>
 
                         <div class="btnLoginValidatte">
                             <input type="submit" name="btnLoginValidate" id="btnLoginValidate" value="Đăng nhập">
                         </div>
-
+                        
                         <div class="supportLogin">
                             <span>Quên mật khẩu?</span><br>
                             <span id="createAccount">Tạo tài khoản!</span>
+                        </div>
+                        
+                        <div class="LoginWithOrther">
+                            <a href="#" id="btnFacebook"><i class="fab fa-facebook-f"></i> | Facebook</a>
+                            <a href="#" id="btnGoogle"><i class="fab fa-google"></i> | Google</a>
                         </div>
                     </form>
                 </div>
@@ -77,10 +90,10 @@
                     <span id="btnCloseRegistration"><i class="fas fa-times"></i></span>
                 </div>
                 <div class="titleBox">
-                    <span>Đăng kí</span>
+                    <span><i class="fas fa-user-plus"></i> Đăng kí</span>
                 </div>
                 <div class="containerForm">
-                    <form class="registrationInfomationBox" method="POST" action="/create-account" autocomplete="off">
+                    <form class="registrationInfomationBox" id="registrationInfomationBox" method="POST" action="/create-account" autocomplete="off">
                         <div class="containerForm-inputBox">
                             <div class="colunm1">
                                 <div class="form-control">
@@ -131,6 +144,7 @@
                                 <div class="form-control">
                                     <label for="pass">Mật khẩu</label>
                                     <input type="password" name="pass" id="pass" required>
+                                    <i class="fas fa-eye-slash toggle_password" id="toggle_password" onclick="TogglePassword(pass)"></i><br>
                                     <small></small>
                                 </div>
 

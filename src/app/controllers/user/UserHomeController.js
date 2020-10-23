@@ -32,21 +32,21 @@ class UserHomeController{
         response.json(request.body);
         // console.log(request.body);
 
-        try {
-            const user = new User({
-                user_Name: request.body.user_Name,
-                gender: request.body.gender,
-                dateOfBirth: request.body.dateOfBirth,
-                cellphone: request.body.cellphone,
-                specialization: request.body.specialization,
-                email: request.body.email,
-                password: crypto.createHash('sha256').update(request.body.pass).digest('hex')
-            });
-            // user.save();
-            response.render('userHome');
-        } catch (error) {
-            console.log("error create user: " + error);
-        }
+        // try {
+        //     const user = new User({
+        //         user_Name: request.body.user_Name,
+        //         gender: request.body.gender,
+        //         dateOfBirth: request.body.dateOfBirth,
+        //         cellphone: request.body.cellphone,
+        //         specialization: request.body.specialization,
+        //         email: request.body.email,
+        //         password: crypto.createHash('sha256').update(request.body.pass).digest('hex')
+        //     });
+        //     // user.save();
+        //     response.render('userHome');
+        // } catch (error) {
+        //     console.log("error create user: " + error);
+        // }
     }
 }
 

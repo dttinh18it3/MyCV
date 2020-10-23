@@ -4,10 +4,6 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif; }
 
-body {
-  width: 100%;
-  height: 100%; }
-
 nav {
   top: 0;
   right: 0;
@@ -57,13 +53,18 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 40%;
+  width: 45%;
   margin: 0;
   list-style: none; }
 
 .nav-links li a {
-  padding: 0 5px;
+  font-size: 18px;
   color: #000000; }
+
+.nav-links .nav-links__buttonBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
 
 .nav-links #btnLogin {
   cursor: pointer;
@@ -72,8 +73,7 @@ nav {
   border-radius: 3px;
   border: none;
   color: white;
-  padding: 8px 16px;
-  font-weight: bold; }
+  padding: 8px 10px; }
 
 .nav-links #btnRegister {
   cursor: pointer;
@@ -83,7 +83,7 @@ nav {
   border: solid 2px #f48f3f;
   color: #f48f3f;
   padding: 6px 16px;
-  font-weight: bold; }
+  margin-left: 5px; }
 
 .nav-links button:hover {
   box-shadow: #707070 1px 1px 5px; }
@@ -180,17 +180,15 @@ nav {
 .modal__body {
   margin: auto; }
 
-.container {
-  position: absolute;
-  margin-top: 100px;
-  height: 2000px;
-  background-color: red; }
+.body_container {
+  margin-top: 50px;
+  height: 1000px; }
 
 .loginFormPopup {
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 50%;
   padding: 10px 20px;
   border-radius: 5px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
@@ -232,6 +230,7 @@ nav {
   color: red; }
 
 .titleBox span {
+  padding: 0 20px;
   color: #f48f3f; }
 
 .btnCloseRegistration {
@@ -249,8 +248,9 @@ nav {
   flex-direction: row; }
 
 .form-control {
+  position: relative;
   width: 100%;
-  height: 80px; }
+  height: 77px; }
 
 .imageBox,
 .loginInfomationBox,
@@ -263,57 +263,48 @@ nav {
 .imageBox img {
   width: 100%; }
 
+.login__form-control {
+  position: relative;
+  height: 52px; }
+
 .infomation input {
-  margin-top: 10px;
-  width: 80%;
-  padding: 5px 10px;
+  width: 100%;
+  padding: 3px 30px;
   outline: none;
-  font-size: 15px;
+  font-size: 14px;
   border: none;
   border-bottom: solid 2px #f48f3f; }
 
-.rememberPassword {
-  position: relative;
-  margin-top: 10px; }
+.login__form-control #toggle_password {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  color: #f48f3f; }
 
-.rememberPassword input {
-  cursor: pointer;
-  width: 12px;
-  height: 12px;
-  bottom: 0;
-  appearance: none;
-  background-color: white;
-  outline: none;
-  border-radius: 20px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); }
-
-.rememberPassword label {
-  font-size: 15px;
-  color: grey;
-  cursor: pointer; }
-
-.rememberPassword input:checked {
-  width: 12px;
-  height: 12px;
-  background-color: #f48f3f;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); }
+.login__form-control .input_icon {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  color: #f48f3f; }
 
 .btnLoginValidatte {
-  width: 100%;
-  margin: 15px 0px; }
+  width: 100%; }
 
 #btnLoginValidate {
   border-radius: 3px;
   position: relative;
-  padding: 10px 30px;
+  padding: 8px 30px;
+  font-size: 15px;
   background-color: #f48f3f;
   border: none;
-  color: white;
-  font-weight: bold; }
+  color: white; }
 
 #btnLoginValidate:hover {
   cursor: pointer;
   box-shadow: #707070 1px 1px 5px; }
+
+.supportLogin {
+  padding: 10px 0; }
 
 .supportLogin span {
   cursor: pointer;
@@ -325,6 +316,35 @@ nav {
 .supportLogin span:hover {
   color: #f48f3f; }
 
+.LoginWithOrther {
+  margin-top: 20px;
+  padding: 10px 0px 0px 0px;
+  border-top: solid 1px #bbbbbb;
+  display: flex;
+  justify-content: space-between;
+  width: 100%; }
+
+.LoginWithOrther a {
+  border-radius: 3px;
+  flex-basis: 48%;
+  text-align: center;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 5px 10px;
+  color: white; }
+
+.LoginWithOrther span {
+  font-size: 12px; }
+
+.LoginWithOrther #btnFacebook {
+  background-color: #3b5998; }
+
+.LoginWithOrther #btnGoogle {
+  background-color: #DB4437; }
+
+.LoginWithOrther a:hover {
+  box-shadow: #707070 1px 1px 5px; }
+
 .registrationInfomationBox input[type='text'],
 .registrationInfomationBox input[type='date'],
 .registrationInfomationBox input[type='password'],
@@ -334,6 +354,15 @@ nav {
   outline-color: #f48f3f;
   border: solid 1px black;
   border-radius: 3px; }
+
+.registrationInfomationBox input[type='password'] {
+  padding: 5px 25px 5px 10px; }
+
+.form-control #toggle_password {
+  position: absolute;
+  top: 32px;
+  right: 5px;
+  color: black; }
 
 .colunm1 span {
   color: #f48f3f; }
@@ -354,7 +383,6 @@ nav {
   color: white;
   border: solid 2px #f48f3f;
   background-color: #f48f3f;
-  font-weight: bold;
   margin-top: 5px;
   outline: none;
   cursor: pointer; }
@@ -373,6 +401,7 @@ nav {
   cursor: pointer; }
 
 small {
+  font-size: 12px;
   color: green; }
 
 .invalid small {
@@ -417,3 +446,6 @@ small {
     width: 90%; }
   .buttonBox span {
     margin-right: 0; } }
+
+footer {
+  background-color: #DB4437; }
