@@ -4,19 +4,19 @@
   "description": "CV online website",
   "main": "src/main.js",
   "dependencies": {
-    "mongoose": "^5.10.0"
+    "mongoose": "^5.11.15"
   },
   "devDependencies": {
     "body-parser": "^1.19.0",
     "crypto-js": "^4.0.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.1.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
+    "express-handlebars": "^5.2.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
     "morgan": "^1.10.0",
     "node-sass": "^4.14.1",
-    "nodemon": "^2.0.4",
-    "prettier": "^2.0.5"
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
   },
   "scripts": {
     "start": "nodemon --inspect src/main.js",

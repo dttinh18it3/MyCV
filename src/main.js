@@ -7,8 +7,25 @@ const port = 3000;
 // Khai bao controller
 const app = express();
 
-// Khai bao route
-const route = require('./routes/indexRouter');
+var bodyParser = require('body-parser');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
+ 
+// //custom user middleware
+// const userMiddleware = require('./app/middlewares/userMiddleware');
+// app.use(userMiddleware);
+
+// Khai bao web route
+const indexRoute = require('./routes/indexRoute');
+
+
+// Khai bao api route
+const apiRoute = require('./routes/api/apiUserRoute');
+
 //Khai bao ket noi database
 const database = require('./config/database/connectdb');
 // Ket noi database
@@ -38,7 +55,9 @@ app.set('view engine', 'hbs');
 app.use(morgan('combined'));
 
 // route
-route(app, role);
+indexRoute(app, role);
+// webRoute(app, role);
+// apiRoute(app);
 
 app.listen(port, () => {
     console.log(port)
